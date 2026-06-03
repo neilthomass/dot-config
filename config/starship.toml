@@ -1,0 +1,9 @@
+add_newline = false
+format = "$directory$character"
+
+[directory]
+truncation_length = 2
+
+[character]
+success_symbol = "[❯](green)"
+error_symbol = "[❯](red)"

@@ -1,0 +1,6 @@
+theme = Gruvbox Dark Hard
+
+# Autostart tmux: attach to "main" session if it exists, else create it.
+# Every Ghostty window joins the same session (same panes everywhere).
+# For a fresh session per window, use:  command = tmux new-session
+command = /opt/homebrew/bin/tmux new-session -A -s main

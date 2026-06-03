@@ -1,0 +1,2 @@
+# Login-shell init. rbenv shims need to be on PATH for login shells too.
+eval "$(rbenv init -)"

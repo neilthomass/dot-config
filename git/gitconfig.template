@@ -1,0 +1,15 @@
+# Template for ~/.gitconfig. `install.sh` fills in name/email/signing key and
+# writes the result to ~/.gitconfig (it is NOT symlinked, to keep identity out
+# of the repo). Edit the prompts in install.sh if you want different defaults.
+[user]
+	name = __GIT_NAME__
+	email = __GIT_EMAIL__
+	signingkey = __GIT_SIGNINGKEY__
+[gpg]
+	format = ssh
+[commit]
+	gpgsign = true
+[url "git@github.com:"]
+	insteadOf = https://github.com/
+[push]
+	default = current
