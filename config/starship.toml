@@ -1,8 +1,15 @@
 add_newline = false
-format = "$directory$character"
+format = "$directory$git_branch $character"
 
 [directory]
-truncation_length = 2
+truncate_to_repo = false
+truncation_length = 0
+format = "[$path]($style)"
+
+[git_branch]
+symbol = ""
+format = "[\\($branch\\)]($style)"
+style = "purple"
 
 [character]
 success_symbol = "[❯](green)"
