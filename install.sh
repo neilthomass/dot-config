@@ -41,6 +41,9 @@ ok "Homebrew ready ($(brew --version | head -1))"
 #  2. Brewfile
 # ─────────────────────────────────────────────────────────────
 bold "==> Installing packages from Brewfile"
+# aerospace lives in a third-party tap. Newer Homebrew refuses to load untrusted
+# taps unless we opt out of the trust check, which otherwise aborts the bundle.
+export HOMEBREW_NO_REQUIRE_TAP_TRUST=1
 brew bundle --file="$DOTFILES/Brewfile"
 ok "Brew packages installed"
 

@@ -38,8 +38,11 @@ brew "zlib"              # compression library
 brew "zsh-autosuggestions"     # fish-like autosuggestions for zsh
 brew "zsh-syntax-highlighting" # syntax highlighting for zsh
 
+# ── Third-party taps ─────────────────────────────────────────
+tap "nikitabobko/tap"         # source for aerospace
+
 # ── GUI apps / casks ─────────────────────────────────────────
-cask "aerospace"              # i3-like tiling window manager
+cask "nikitabobko/tap/aerospace" # i3-like tiling window manager
 cask "ghostty"                # GPU terminal emulator
 cask "karabiner-elements"     # keyboard customizer
 cask "stats"                  # menu-bar system monitor
