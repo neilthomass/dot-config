@@ -12,6 +12,10 @@ alias zed='/Applications/Zed.app/Contents/MacOS/cli'
 # `gpush` — stage everything, commit with message "changes", then push.
 alias gpush='git add -A && git commit -m "changes" && git push'
 
+# `nil` — reset a terminal stuck in mouse-tracking mode (e.g. after an SSH
+#         drop) by disabling the X10/button/any-motion/SGR mouse-report modes.
+alias nil="printf '\e[?1000l\e[?1002l\e[?1003l\e[?1006l'"
+
 # `gcr <branch>` — git checkout remote: fetch a remote branch into a local
 #                  branch of the same name and check it out.
 gcr() {

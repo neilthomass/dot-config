@@ -7,6 +7,7 @@
 #   3. Install nvm + tmux's plugin manager (TPM)
 #   4. Symlink config files into place (backing up anything already there)
 #   5. Generate ~/.gitconfig from a template (prompts for identity)
+#   6. Apply macOS system defaults (fast key repeat, etc.)
 #
 # Safe to re-run: it's idempotent and backs up existing files before linking.
 
@@ -114,6 +115,17 @@ else
         "$DOTFILES/git/gitconfig.template" > "$HOME/.gitconfig"
     ok "wrote ~/.gitconfig"
 fi
+
+# ─────────────────────────────────────────────────────────────
+#  6. macOS system defaults
+# ─────────────────────────────────────────────────────────────
+bold "==> macOS defaults"
+# Fast delete / key repeat: hold a key (e.g. backspace) and it repeats at the
+# fastest rate macOS allows. KeyRepeat is the repeat interval (1 = fastest);
+# InitialKeyRepeat is the delay before repeating kicks in (lower = snappier).
+defaults write NSGlobalDomain KeyRepeat -int 1
+defaults write NSGlobalDomain InitialKeyRepeat -int 15
+ok "fast key repeat enabled (KeyRepeat=1) — log out/in for it to take effect"
 
 echo
 bold "All done!"
