@@ -1,0 +1,30 @@
+# Global clangd config — applies to all C/C++ files.
+# Mirrors `g++ -Wall -Wextra -Wshadow` plus clang-tidy static analysis.
+CompileFlags:
+  Add:
+    - -std=c++23
+    - -Wall
+    - -Wextra
+    - -Wshadow
+    # Swap Apple's libc++ for Homebrew GCC's libstdc++ so GCC-only headers
+    # like <bits/stdc++.h> resolve. In GCC 16 that header lives in the
+    # target-specific include dir, hence the aarch64-apple-darwin25 path.
+    - -nostdinc++
+    - -I/opt/homebrew/opt/gcc/include/c++/16
+    - -I/opt/homebrew/opt/gcc/include/c++/16/aarch64-apple-darwin25
+    - -I/opt/homebrew/opt/gcc/include/c++/16/backward
+    # libstdc++'s <cmath> wraps __builtin_acosf etc. in constexpr functions
+    # clang cannot constant-fold; without this every <cmath> line errors.
+    - -Wno-invalid-constexpr
+Diagnostics:
+  ClangTidy:
+    Add:
+      - bugprone-*
+      - performance-*
+      - modernize-*
+      - clang-analyzer-*
+      - cppcoreguidelines-*
+    Remove:
+      - modernize-use-trailing-return-type
+      - cppcoreguidelines-avoid-magic-numbers
+    FastCheckFilter: None

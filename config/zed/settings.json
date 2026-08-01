@@ -39,6 +39,10 @@
         "--header-insertion=iwyu",
         "--all-scopes-completion",
         "--completion-style=detailed",
+        // Let clangd query Homebrew g++ for its real include paths in projects
+        // that ship a compile_commands.json built with it. Without a compile DB,
+        // the include paths in clangd/config.yaml are what resolve <bits/stdc++.h>.
+        "--query-driver=/opt/homebrew/bin/g++-16,/opt/homebrew/bin/gcc-16",
       ],
     },
   },

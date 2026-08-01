@@ -100,6 +100,9 @@ link config/starship.toml         "$HOME/.config/starship.toml"
 link config/ghostty/config        "$HOME/.config/ghostty/config"
 link config/zed/settings.json     "$HOME/.config/zed/settings.json"
 link config/karabiner/karabiner.json "$HOME/.config/karabiner/karabiner.json"
+# clangd reads its user config from the platform preferences dir on macOS,
+# NOT ~/.config/clangd — a file placed there is silently ignored.
+link clangd/config.yaml           "$HOME/Library/Preferences/clangd/config.yaml"
 
 # ─────────────────────────────────────────────────────────────
 #  5. ~/.gitconfig from template (identity kept out of the repo)

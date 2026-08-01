@@ -7,6 +7,7 @@ brew "ccache"            # compiler cache
 brew "cmake"             # build system
 brew "curl"              # HTTP client
 brew "fswatch"           # filesystem watcher
+brew "gcc"               # GNU compiler + libstdc++ (clangd needs it for <bits/stdc++.h>)
 brew "gh"                # GitHub CLI
 brew "git"               # git
 brew "git-lfs"           # git large file storage
