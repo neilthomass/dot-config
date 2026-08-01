@@ -7,6 +7,31 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+  // NOTE: ssh_connections is deliberately not tracked here — it holds internal
+  // hostnames and this repo is public. Zed will re-add it locally as you connect.
+  "session": {
+    "trust_all_worktrees": true
+  },
+  "redact_private_values": true,
+  "disable_ai": true,
+  "project_panel": {
+    "dock": "right"
+  },
+  "outline_panel": {
+    "dock": "left"
+  },
+  "collaboration_panel": {
+    "dock": "left"
+  },
+  "agent": {
+    "dock": "right",
+    "favorite_models": [],
+    "model_parameters": []
+  },
+  "git_panel": {
+    "dock": "left"
+  },
+  "cli_default_open_behavior": "new_window",
   "vim_mode": true,
   "icon_theme": "Zed (Default)",
   "ui_font_size": 16,
@@ -39,9 +64,10 @@
         "--header-insertion=iwyu",
         "--all-scopes-completion",
         "--completion-style=detailed",
-        // Let clangd query Homebrew g++ for its real include paths in projects
-        // that ship a compile_commands.json built with it. Without a compile DB,
-        // the include paths in clangd/config.yaml are what resolve <bits/stdc++.h>.
+        // Let clangd shell out to Homebrew g++ to learn its real include
+        // paths when a project has a compile_commands.json built with it.
+        // Without a compile DB, the include paths in ~/.config/clangd/config.yaml
+        // are what make <bits/stdc++.h> resolve.
         "--query-driver=/opt/homebrew/bin/g++-16,/opt/homebrew/bin/gcc-16",
       ],
     },

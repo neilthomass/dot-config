@@ -23,11 +23,18 @@ gcr() {
     git checkout "$1"
 }
 
-# `run <file.cpp> [args...]` — compile a single C++ file with g++, run the
+# `run <file.cpp> [args...]` — compile a single C++ file as C++23, run the
 #                              resulting binary, then clean up the artifacts.
+#
+# On macOS plain `g++` is Apple clang, which ships libc++ and therefore has no
+# <bits/stdc++.h>. Prefer a real Homebrew GCC when one is installed; on Linux
+# (Coder devbox) `g++` already is GCC, so the fallback is correct there.
 run() {
-    local out="${1%.cpp}"
-    g++ "$1" -o "$out" && "./$out" "${@:2}"
+    local out="${1%.cpp}" cxx
+    for cxx in g++-16 g++-15 g++-14 g++; do
+        command -v "$cxx" >/dev/null 2>&1 && break
+    done
+    "$cxx" -std=c++23 "$1" -o "$out" && "./$out" "${@:2}"
     local rc=$?
     rm -f "$out" a.out
     return $rc

@@ -1,4 +1,5 @@
 theme = Gruvbox Dark Hard
+font-family = "Berkeley Mono"
 
 # Autostart tmux: attach to "main" session if it exists, else create it.
 # Every Ghostty window joins the same session (same panes everywhere).
