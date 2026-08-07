@@ -13,11 +13,9 @@ brew "git"               # git
 brew "git-lfs"           # git large file storage
 brew "gitleaks"          # secret scanner
 brew "go"                # Go toolchain
-brew "jq"                # JSON processor
 brew "lazygit"           # terminal git UI
 brew "librdkafka"        # Kafka C library
 brew "mise"              # polyglot runtime/version manager
-brew "mkcert"            # local TLS certs
 brew "n"                 # node version manager
 brew "neovim"            # editor
 brew "node"              # Node.js
@@ -27,14 +25,11 @@ brew "python-setuptools" # python build tooling
 brew "python@3.11"       # Python 3.11
 brew "rsync"             # file sync
 brew "rustup"            # Rust toolchain installer
-brew "shellcheck"        # shell linter
-brew "shfmt"             # shell formatter
 brew "starship"          # cross-shell prompt
 brew "thefuck"           # command corrector
 brew "tmux"              # terminal multiplexer
 brew "watchman"          # file watching service
 brew "wget"              # downloader
-brew "yq"                # YAML processor
 brew "zlib"              # compression library
 brew "zsh-autosuggestions"     # fish-like autosuggestions for zsh
 brew "zsh-syntax-highlighting" # syntax highlighting for zsh
