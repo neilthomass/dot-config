@@ -16,7 +16,9 @@ export PATH="/opt/homebrew/opt/rustup/bin:$PATH"
 export PATH="$HOME/.cargo/bin:$PATH"
 
 eval "$(mise activate zsh)"
-eval "$(rbenv init -)"
+if command -v rbenv >/dev/null 2>&1; then
+  eval "$(rbenv init -)"
+fi
 
 export NODE_OPTIONS="--max-old-space-size=8192"
 

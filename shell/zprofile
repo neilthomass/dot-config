@@ -1,2 +1,4 @@
-# Login-shell init. rbenv shims need to be on PATH for login shells too.
-eval "$(rbenv init -)"
+# Login-shell init. Load rbenv when it is installed and already on PATH.
+if command -v rbenv >/dev/null 2>&1; then
+  eval "$(rbenv init -)"
+fi
