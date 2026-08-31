@@ -58,18 +58,19 @@
   },
   "lsp": {
     "clangd": {
-      "arguments": [
-        "--clang-tidy",
-        "--background-index",
-        "--header-insertion=iwyu",
-        "--all-scopes-completion",
-        "--completion-style=detailed",
-        // Let clangd shell out to Homebrew g++ to learn its real include
-        // paths when a project has a compile_commands.json built with it.
-        // Without a compile DB, the include paths in ~/.config/clangd/config.yaml
-        // are what make <bits/stdc++.h> resolve.
-        "--query-driver=/opt/homebrew/bin/g++-16,/opt/homebrew/bin/gcc-16",
-      ],
+      "binary": {
+        // Apple clangd 16 cannot parse Homebrew GCC 16's libstdc++ headers.
+        // Use Zed's managed current clangd instead.
+        "ignore_system_version": true,
+        "arguments": [
+          "--clang-tidy",
+          "--background-index",
+          "--header-insertion=iwyu",
+          "--all-scopes-completion",
+          "--completion-style=detailed",
+          "--query-driver=/opt/homebrew/bin/g++-16,/opt/homebrew/bin/gcc-16,/usr/bin/g++",
+        ],
+      },
     },
   },
 }

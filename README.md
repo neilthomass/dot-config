@@ -3,8 +3,8 @@
 My macOS coding setup.
 
 ```bash
-git clone github.com/neilthomass/dot-config ~/dot-config
-cd ~/dot-config
+git clone https://github.com/neilthomass/dotfiles ~/dotfiles
+cd ~/dotfiles
 ./install.sh
 ```
 
